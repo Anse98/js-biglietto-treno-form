@@ -10,6 +10,14 @@ const DOMage = document.getElementById("discount");
 
 const btnDOM = document.getElementById("btn-calc");
 
+// Prendo la variabile name dal DOM
+
+const DOMname = document.getElementById("name");
+
+// Prendo la variabile surname dal DOM
+
+const DOMsurname = document.getElementById("surname");
+
 // Aggiungo evento sul button
 
 btnDOM.addEventListener("click", function(){
@@ -18,15 +26,28 @@ btnDOM.addEventListener("click", function(){
 
   const km = parseInt(DOMinputKm.value);
   
-  //Mi vado a prendere l'età dell'utente selezionata nella select 
+  //Mi vado a prendere il valore dell'età dell'utente selezionata nella select 
 
   const age = parseInt(DOMage.value);
+
+  // Mi vado a prendere il valore della variabile name
+
+  const name = DOMname.value;
+
+  // Mi vado aprendere il valore della variabile surname
+
+  const surname = DOMsurname.value;
 
   //Imposto il prezzo base del biglietto
 
   let basePrice = km * 0.21;
 
-   
+  // SE l'utente non inserisce o un numero o un valore negativo allora non eseguire il resto del codice se no vai avanti
+
+   if (isNaN(km) || km <= 0 || name === "" || surname === "") {
+    document.querySelector(".price").innerHTML ="Non hai inserito i dati correttamente";
+   } else {
+
   
   //Applico gli sconti in base ai km e all'età del passeggero
 
@@ -41,4 +62,5 @@ btnDOM.addEventListener("click", function(){
   //Stampo il prezzo
 
   document.querySelector(".price").innerHTML ="Il prezzo del tuo biglietto è: " + basePrice.toFixed(2) + " &euro;";
-})
+}})
+
