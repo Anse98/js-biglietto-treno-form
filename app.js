@@ -16,6 +16,12 @@ const DOMsurname = document.getElementById("surname");
 // Prendo il pulsante btn-reset dal DOM
 const btnReset = document.getElementById("btn-reset");
 
+// Creo variabile stringa riciclabile
+const errorForm = "Non hai inserito i dati correttamente";
+
+// Creo variabile generale per l'output
+const outputForm = document.querySelector(".price");
+
 // Aggiungo evento sul click di btn-calc
 btnDOM.addEventListener("click", function(){
  
@@ -36,7 +42,7 @@ btnDOM.addEventListener("click", function(){
 
   // SE l'utente non inserisce o un numero o un valore negativo allora non eseguire il resto del codice se no vai avanti
    if (isNaN(km) || km <= 0 || name === "" || surname === "") {
-    document.querySelector(".price").innerHTML ="Non hai inserito i dati correttamente";
+    outputForm.innerHTML = errorForm;
    } else {
 
   
@@ -50,18 +56,21 @@ btnDOM.addEventListener("click", function(){
   }
 
   //Stampo il prezzo
-  document.querySelector(".price").innerHTML ="Il prezzo del tuo biglietto è: " + basePrice.toFixed(2) + " &euro;";
+  outputForm.innerHTML ="Il prezzo del tuo biglietto è: " + basePrice.toFixed(2) + " &euro;";
 }})
 
 // Aggiungo evento reset sul click di btn-reset
 btnReset.addEventListener("click", function(){
-  if (DOMname.value != "" || DOMsurname.value != "" || DOMinputKm.value != "" || DOMage.value != "0" ) {
+  if (DOMname.value != "" || DOMsurname.value != "" || DOMinputKm.value != "" || DOMage.value != "0") {
       DOMname.value = "";
       DOMsurname.value = "";
       DOMinputKm.value = "";
-      document.querySelector(".price").innerHTML ="";
+      outputForm.innerHTML ="";
       DOMage.value = "0"; 
-  } 
+      outputForm.value = "error";
+   } else if (outputForm.value = "error") {
+    outputForm.innerHTML ="";
+   }
 }) 
 
 
