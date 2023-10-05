@@ -6,7 +6,7 @@ const DOMinputKm = document.getElementById("km");
 
 const DOMage = document.getElementById("discount");
 
-// Prendo il pulsante dal DOM
+// Prendo il pulsante btn-calc dal DOM
 
 const btnDOM = document.getElementById("btn-calc");
 
@@ -63,4 +63,7 @@ btnDOM.addEventListener("click", function(){
 
   document.querySelector(".price").innerHTML ="Il prezzo del tuo biglietto è: " + basePrice.toFixed(2) + " &euro;";
 }})
+
+
+
 

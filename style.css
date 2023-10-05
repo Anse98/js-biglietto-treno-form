@@ -22,6 +22,11 @@
   font-weight: 600;
 }
 
+.form-body .form-control:focus {
+  border-color: #A970FF;
+  box-shadow: 0 0 0 0.25rem rgba(141,33,200,0.6);
+}
+
 .age select{
   border-radius: 4px;
   padding: 4px;
@@ -36,7 +41,8 @@
   font-weight: 600;
 }
 
-#btn-calc {
+#btn-calc,
+#btn-reset {
   border: 1px solid lightgray;
   padding:3px 20px;
   background-color: #A970FF;
