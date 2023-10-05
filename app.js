@@ -10,9 +10,6 @@ const DOMage = document.getElementById("discount");
 
 const btnDOM = document.getElementById("btn-calc");
 
-// Definisco prezzo di base biglietto
-
-
 // Aggiungo evento sul button
 
 btnDOM.addEventListener("click", function(){
@@ -28,6 +25,8 @@ btnDOM.addEventListener("click", function(){
   //Imposto il prezzo base del biglietto
 
   let basePrice = km * 0.21;
+
+   
   
   //Applico gli sconti in base ai km e all'età del passeggero
 
@@ -41,6 +40,5 @@ btnDOM.addEventListener("click", function(){
 
   //Stampo il prezzo
 
-  document.querySelector(".price").innerHTML ="Il prezzo del tuo biglietto è: " + basePrice + " &euro;";
-
+  document.querySelector(".price").innerHTML ="Il prezzo del tuo biglietto è: " + basePrice.toFixed(2) + " &euro;";
 })
